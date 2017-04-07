@@ -1,0 +1,891 @@
+set path=%path%;"c:\nodejs"
+
+
+for in loop
+-----------------------------------------------------
+var person={name:"Spandana",age:21};
+for(var key in person)
+    console.log(key+":"+person[key]);
+----------------------------------------------------
+Object creation
+
+var person={};
+-------------------------------------------------------
+
+Calling properties in object
+
+console.log(person["name"]);
+------------------------------------------------------
+
+adding properties to object
+
+person.name="Spandana";
+-----------------------------------------------------
+
+Strict comparator
+
+var n;
+console.log(n===undefined);
+-----------------------------------------------------
+deffered function
+
+var addNumbers=function(a,b,fn){
+    var data;
+    setTimeout(function(){
+        data=a+b;
+        fn(data);
+    },3000);
+}
+addNumbers(4,5,function(rs){
+    console.log("executed");
+    console.log(rs);
+});
+-------------------------------------------------------
+
+self invoking function
+
+()();
+
+var i=(function (a,b){
+    return(a+b);
+})(10,6);
+console.log(i);
+--------------------------------------------------------
+
+function inside a function 
+add(4)(5);
+
+var add=function(a){
+    return function(b){
+        return a+b;
+    }
+}
+console.log(add(4)(5));
+
+-------------------------------------------------------
+
+call back queue
+
+
+var addNumbers=(function(){
+    console.log("one");
+    console.log("two");
+    setTimeout(function(){
+       console.log("three");
+    },100);
+    setTimeout(function(){
+    console.log("four");
+},10);
+    console.log("five");
+})();
+
+-------------------------------------------------------
+
+adding and square 
+
+
+var addNumbers=function(a,b,fun){
+        var result;
+        setTimeout(function(){
+            result=a+b;
+            fun(result);
+        },Math.round(Math.random()*1000));
+};
+var square=function(a,fun){
+    var result;
+    setTimeout(function(){
+         result=a*a;
+         fun(result);
+    },Math.round(Math.random()*100))
+
+};
+addNumbers(4,5,function(result){
+    console.log(result);
+    square(result,function(res){
+        console.log(res);
+    });
+    
+});
+---------------------------------------------------------
+
+local and global variables
+
+local: assigning var keyword
+var a=5;    \\local
+
+global: without var keyword
+
+a=5;       \\global
+
+-----------------------------------------------------
+
+closure 
+
+accessing local variable with global variable
+
+(function(){
+    var year=2017;
+    printYear=function(){
+        console.log(year);
+    }
+
+    increment=function(){
+        year++;
+    }
+})();
+printYear();
+increment();
+printYear();
+
+------------------------------------------------------
+
+javascript does not support classes access specifiers
+
+constructors are valid in javascript
+
+any function When starting with Capital letter(pascal case) that is a constructor and we can create instances.
+
+function Employee(id,name){
+	this.id=id;
+	this.name=name;
+};
+ var e1=new Employee(1,"Spandana");
+var e2=new Employee(2,"Lavanya");
+------------------------------------------------------------------
+
+NodeJs
+
+in nodejs we will work with modules
+ modules are used to group the logically related stuff
+and to avoid naming collisions
+
+iife=immidiate invoking function expression
+
+for Internet Explorer----Chakra engine
+Google chrome-------v8
+opera-----------odin Monkey
+safari---------spider Monkey
+
+-----------------------------------------------------------------
+Three different types of modules
+'
+1.inbuilt modules (os,path)
+2.User defined modules
+3.Third party modules( "which are done by other developersand we can use it through internet")
+
+cd test ----current directory test
+mkdir test---- make directory test
+cd..--------come out of one folder of current directory
+./-------inside the current directory
+
+-----------------------------------------------------------------
+
+
+
+  var test=require("./thirdModule");
+console.log(test.add(8,3));
+
+
+module.exports={
+    add:function(a,b){
+        return a+b;
+    }
+};    
+
+var square=require("./fourth");
+console.log(square(5));
+
+----------------------------------------------------------------------
+
+ecma script 5( present)--> ecma Script 6 (advanced)(es 2015)
+
+ es6 supported by google chrome ,opera,node 6(environment)
+
+ecma international implementations are 1.action 
+2.J script
+3.java script
+
+--------------------------------------------------------------------
+Typescript
+
+it is a transpiler---- It is Strongly typed, And supports annotation and access specifiers
+
+by default it has public access specifier.
+
+file extension is .ts
+it is created by microsoft.
+
+-------------------------------------------------------
+Es 6 is not strongly typed and it does not support access specifiers
+
+Es5 does not support enum but es6 can.
+
+----------------------------------------------------------------------
+
+node js default target to ES 5 
+ to make it ES 6 
+tsc first.ts -target ES6
+else
+tsc first.ts
+
+--------------------------------------------------------------------
+node js consist of modules in node_modules
+
+we can install third party modules(rimraf,typescript) through online and offline
+
+npm install typescript    (online)
+npmunbox -p C:\nodeDemos\npmarchive typescript (offline)
+
+npmunbox -g c:\nodeDemos\npmarchive\rimraf.npmbox   ( offline)
+
+-g is for global 
+
+rimraf is use to delete the folder
+
+after compilation of ts file we will get js file
+-------------------------------------------------------------------------
+
+enum in typescript
+
+enum Salutation {Mr,Ms,MRs}
+var personName:string="Spandana";
+var personAge:number=21;
+var activeStatus:boolean=true;
+var title:Salutation=Salutation.Ms;
+
+--------------------------------------------------------------------------
+
+creating class in typescript
+
+class Foo{
+    private name: string;
+
+    get Name(): string{
+        return this.name;
+    }
+
+    set Name(name:string){
+        this.name=name;
+    }
+    constructor(){
+        this.name="";
+    }
+    getDetails(): string{
+        return "name:"+this.name;
+    }
+}
+var fooObj: Foo=new Foo();
+fooObj.Name="Spandana";
+console.log(fooObj.getDetails());
+
+
+
+---------------------------------------------------------------------------
+ String interpolation
+
+typescript
+
+var firstName: string='Spandana';
+var lastName: string='Bola';
+var fullName: string=`${firstName} ${lastName}`;
+var multiLine: string=`One
+Two
+Three`;
+console.log(fullName);
+console.log(multiLine);
+
+es5
+
+var firstName = 'Spandana';
+var lastName = 'Bola';
+var fullName = firstName + " " + lastName;
+var multiLine = "One\nTwo\nThree";
+console.log(fullName);
+console.log(multiLine);
+
+---------------------------------------------------------------------------
+
+inheritance in typescript
+
+class Employee{
+    constructor(){
+        console.log("employee invoked");
+    }
+}
+
+class Manager extends Employee{
+    constructor(){
+        super();
+        console.log("Manager invoked");
+    }
+}
+new Manager();
+----------------------------------------------------------------------------
+
+lamda expressions in typescript
+
+var add=(a: number,b: number): number=>a+b;
+var square=(a: number): number=>a*a;
+console.log(add(3,4));
+console.log(square(5));
+
+----------------------------------------------------------------------------
+
+Interface concept in typescript
+
+interface IPerson{
+    firstName: string;
+    lastName: string;
+}
+
+var person=(obj: IPerson): string=>{
+    return `${obj.firstName} ${obj.lastName}`;
+}
+interface IFoo{
+    print(data: string):string;
+}
+class Foo implements IFoo{
+    print(data: string): string{
+        return data;
+    }
+}
+console.log(new Foo().print("Spandana"));
+console.log(person({firstName:'spandana',lastName:'bola'}));
+
+----------------------------------------------------------------------------------
+
+Event handlers in node Js
+
+const event=require("events");
+let appEmitter=new event.EventEmitter();
+let cp=(data)=>{
+    console.log("from event"+data);
+}
+let cp1=(data)=>{
+    console.log("from event cp1"+data);
+}
+appEmitter.addListener("cgEvent",cp);
+//appEmitter.once("cgEvent",cp);
+appEmitter.emit("cgEvent","Spandana");
+appEmitter.emit("cgEvent","Swetha");
+appEmitter.removeListener("cgEvent",cp);
+appEmitter.removeAllListeners("cgEvent");
+appEmitter.emit("cgEvent","Spandana");
+
+--------------------------------------------------------------------------------
+
+inbuilt module http in node js
+
+To create web apllication in node js first we have to create package.json which consists details of
+all modules that are used in our application and some details about our application.
+
+To create it type 
+npm init
+then that file will create automatically.
+
+Through this http we can create a server
+
+const http=require('http');
+var server=http.createServer((request,response)=>{
+    response.write("<h1>Spandana</h1>");
+    response.end();
+});
+server.listen(4000,()=>{
+    console.log("Server started at localhost 4000");
+})
+
+In this routing is not possible
+So for the routing we will go for third party module connect
+connect is super set of http
+----------------------------------------------------------------------
+connect module for the routing
+
+-S means saved dependency
+-D means developer dependency
+
+npmunbox -S -p C:\nodeDemos\npmarchive connect
+
+const connect=require("connect");
+var app=connect();
+app.listen(4000,()=>{
+    console.log("started working on localhost 4000");
+});
+app.use("/guest",(req,res,next)=>{
+    console.log("guest logger");
+    next();
+});
+app.use("/guest",(req,res)=>{
+    res.end('<h1>guest Page</h1>');
+});
+app.use("/admin",(req,res,next)=>{
+    console.log("admin logger");
+    next();
+});
+app.use("/admin",(req,res)=>{
+    res.end('<h1>admin Page</h1>');
+});
+app.use("/",(req,res)=>{
+    res.end('<h1>Home Page</h1>');
+});
+
+app.use("/",(req,res,next)=>{
+    console.log("home logger");
+    next();
+});
+
+if we want to change the code  then we have to restart the server 
+to avoid this we will install another third party module nodemon
+npmunbox -D -p C:\nodeDemos\npmarchive nodemon
+
+This nodemon will help to restart the server automatically when changes were made
+In package.json At scripts change it to "start" and value is "nodemon index"
+ then type npm start directly it will start the server
+
+when we entered the unmatched routing it will automatically go to home link(/).
+
+we can not send the request to any other web page thats why we will move to express
+-------------------------------------------------------------------------------------------
+
+express third party module
+
+when we entered the unmatched routing it will show cannot get requested url.
+
+npmunbox -S -p C:\nodeDemos\npmarchive express
+
+const express=require("express");
+var app=express();
+app.get("/",(req,res)=>{
+    res.send("<h1>Welcome to express</h1>");
+});
+app.listen(4000,()=>{
+    console.log("starting on localhost 4000");
+});
+
+Express-generator will generate a project for us automatically
+
+npmunbox -g -p C:\nodeDemos\npmarchive express-generator
+
+express EmployeeApp
+
+it will generate a project along with package.json
+and it will show all required modules to install for the project
+
+If dependencies already available in package.json 
+then no need to specify either -S
+
+--------------------------------------------------------------------------
+
+const express=require("express");
+var app=express();
+var root=express.Router();
+var admin=express.Router();
+
+app.use("/",root);
+app.use("/admin",admin);
+
+root.get("/",(req,res)=>{
+    res.end("<h1>Home Page</h1>");
+});
+
+root.get("/err",(req,res,next)=>{
+    next({title:"cg-Error", message:"It is occuring in error page"});
+});
+
+admin.get("/",(req,res)=>{
+    res.end("<h1>Admin Page</h1>");
+});
+
+admin.get("/test",(req,res)=>{
+    res.end("<h1>Admin Test Page</h1>");
+});
+
+admin.get("/:name",(req,res)=>{
+    res.end("<h1>Admin "+req.params.name +" Page</h1>");
+});
+
+
+root.use((err,req,res,next)=>{
+    res.status(500);
+    res.write("<h1>"+err.title+"</h1>");
+     res.end("<p>"+err.message+"<p>");
+});
+
+
+app.listen(3000,()=>{
+    console.log("started on 3000 localhost");
+});
+
+
+
+-----------------------------------------------------------------------
+jade file
+
+doctype html
+html
+    head
+        title #{title}
+    body
+        p #{message}
+
+This is inside the views folder
+------------------------------------------------------------------------
+
+const express=require("express");
+const path= require("path");
+var app=express();
+
+app.set("views",path.join(__dirname,"views"));
+app.set("view engine","jade");
+
+app.all("*",(req,res)=>{
+    res.render("index",{title:"Capgemini", message:"Chennai Sipcot"});
+});
+
+app.listen(3000,()=>{
+    console.log("started on localhost 3000");
+});
+
+whatever u enter after address it will catch to root element
+---------------------------------------------------------------------------------
+
+type express 08-express-generator 
+it will automatically create project files
+
+in routers index code
+-------------------------------------------
+var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+module.exports = router;
+------------------------------------
+users code
+
+var express = require('express');
+var router = express.Router();
+
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
+});
+
+module.exports = router;
+----------------------------------------------
+
+app.js or index.js as main js file
+
+var express = require('express');
+var path = require('path');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+
+var index = require('./routes/index');
+var users = require('./routes/users');
+
+var app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', index);
+app.use('/users', users);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;
+------------------------------------------------------------
+package.json file
+
+{
+  "name": "08-express-generator",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.0",
+    "jade": "^1.11.0",
+    "morgan": "^1.8.1"
+  }
+}
+-----------------------------------------------------------------
+inside views
+
+error page jade file
+
+extends layout
+
+block content
+  h1= message
+  h2= error.status
+  pre #{error.stack}
+-----------------------------------------------
+
+index jade file
+
+extends layout
+
+block content
+  h1= message
+  h2= error.status
+  pre #{error.stack}
+----------------------------------------------------
+
+layout jade file
+
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block content
+---------------------------------------------------------------
+
+Promise
+
+//var promiseObj=Promise.resolve("success");
+var promiseObj=Promise.reject("failed");
+promiseObj.then(function(data){
+    console.log("promise fulfilled "+data);
+},function(data){
+    console.log("promise failed "+data);
+});
+
+---------------------------------------------------------------------
+
+//var promiseObj=Promise.resolve("success");
+var promiseObj=new Promise((resolve,reject)=>{
+  //  resolve(7);
+  reject("false");
+});
+promiseObj.then((data)=>{
+    console.log("promise fulfilled "+data);
+},(data)=>{
+    console.log("promise failed "+data);
+});
+-----------------------------------------------------------------
+differed program
+
+var addNumbers=function(a,b){
+    var result;
+    return new Promise((resolve,reject)=>{
+       
+        setTimeout(()=>{
+             result=a+b;
+             resolve(result);
+        },3000);
+       
+    });
+};
+
+var addPromise=addNumbers(5,6);
+addPromise.then((data)=>{
+    console.log("sum of numbers :"+data);
+});
+
+------------------------------------------------------------
+
+var promiseObj=new Promise((resolve,reject)=>{
+    var randomNumber=Math.round(Math.random()*10);
+    try{
+         if(randomNumber>5)
+            resolve(randomNumber);
+         else
+            throw "NumberLessThanFiveException: "+randomNumber; 
+    }
+    catch(err){
+            reject(err);
+    };
+   
+});
+promiseObj.then((data)=>{
+        console.log("number: "+data);
+},(err)=>{
+    console.log(err)
+});
+-------------------------------------------------------------------------------
+
+const mongodb=require("mongodb");
+var mongoClient=mongodb.MongoClient;
+
+mongoClient.connect("mongodb://localhost/SampleDB",function(err,db){
+        if(err){
+            console.log("error occured"+err);
+        }
+        else{
+            console.log("database connected to "+db.databaseName);
+            db.close();
+            console.log("disconnected");
+        }
+});
+    
+    -----------------------------------------------------------------------------
+  const mongoose=require("mongoose");
+
+mongoose.connect("mongodb://localhost/SampleDB",function(err){
+        if(err){
+            console.log("error occured"+err);
+        }
+        else{
+            var db=mongoose.connection.db;
+            console.log("database connected to "+db.databaseName);
+            db.close();
+            console.log("disconnected");
+        }
+});
+    =-------------------------------------------------------------------------------
+   const mongoose=require("mongoose");
+mongoose.Promise=require("bluebird");
+mongoose.connect("mongodb://localhost/SampleDB").then(()=>{
+
+            var db=mongoose.connection.db;
+            console.log("database connected to "+db.databaseName);
+            db.close();
+            console.log("disconnected");
+},(err)=>{
+     console.log("error occured"+err);
+});
+
+    ----------------------------------------------------------------------------------------------   
+
+    const mongoose=require("mongoose");
+mongoose.Promise=require("bluebird");
+mongoose.connect("mongodb://localhost/SampleDB").then(()=>{
+
+            var db=mongoose.connection.db;
+            console.log("database connected to "+db.databaseName);
+            var Schema=mongoose.Schema;
+            var Department=mongoose.connection.model("department",new Schema({
+                name: String
+            }));
+            var department=new Department({name:"Java"});
+            department.save((err,doc)=>{
+                if(!err){
+                        console.log("saved successfully"+doc);
+                        db.close();
+                        console.log("disconnected");
+                }else{
+                    console.log("error inside"+err);
+                }
+            });
+            
+},(err)=>{
+     console.log("error occured"+err);
+});
+-----------------------------------------------------------------------------------------
+^[a-zA-Z0-9][a-zA-Z.0-9$%]{3,}[@][()]
+
+----------------------------------------------------------------------------------------
+
+const mongoose=require("mongoose");
+mongoose.Promise=require("bluebird");
+mongoose.connect("mongodb://localhost/SampleDB").then(()=>{
+
+            var db=mongoose.connection.db;
+            console.log("database connected to "+db.databaseName);
+            var Schema=mongoose.Schema;
+            var Department=mongoose.connection.model("department",new Schema({
+                _id: Object,
+                name: String
+            }));
+           // var department=new Department({name:"Java"});
+            // Department.find((err,docs)=>{
+            //     if(!err){
+            //             console.log("retrived successfully");
+            //           docs.forEach((doc)=>{
+            //                  console.log(doc);
+            //           });
+            //             db.close();
+            //             console.log("disconnected");
+            //     }else{
+            //         console.log("error inside"+err);
+            //     }
+            // });
+            // Department.findOne((err,doc)=>{
+            //     if(!err){
+            //       console.log("retrived successfully"+doc);
+            //              db.close();
+            //              console.log("disconnected");
+            //      }else{
+            //          console.log("error inside"+err);
+            //      }
+            //  });
+             var query=Department.where("name").equals("RDBMS");
+             query.exec((err,doc)=>{
+                if(!err){
+                  console.log("retrived successfully"+doc);
+                         db.close();
+                         console.log("disconnected");
+                 }else{
+                     console.log("error inside"+err);
+                 }
+             });
+            
+},(err)=>{
+     console.log("error occured"+err);
+});
+    
+    -------------------------------------------------------------------------------------
+
+    restful services
+
+    const express=require("express");
+var app=express();
+
+app.get("/",(req,res)=>{
+    res.status(200);
+    res.send("HTTP-GET");
+});
+
+app.post("/",(req,res)=>{
+    res.status(201);
+    res.send("HTTP-POST");
+});
+app.put("/",(req,res)=>{
+    res.status(204);
+    res.send("HTTP-PUT");
+});
+app.delete("/",(req,res)=>{
+    res.status(204);
+    res.send("HTTP-DELETE");
+});
+
+app.listen(3000,()=>{
+    console.log("started on localhost 3000");
+});
+
+----------------------------------------------------------------------------------
