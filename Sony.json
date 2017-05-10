@@ -1,0 +1,25 @@
+ [  
+	 { "modelname": "Samsung, Z2", "ram": "1GB","internal":"8GB","price":4650 },
+	 { "modelname": "Samsung, Galaxy Star2", "ram": "512MB","internal":"8GB","price":4990 },
+	 { "modelname": "Samsung, Galaxy Star Duos", "ram": "1GB","internal":"8GB","price":3756 },    
+	 { "modelname": "Samsung, Star Primo S5610", "ram": "2GB","internal":"8GB","price":4493 },   
+	 { "modelname": "Samsung, Galaxy Duos S6012", "ram": "1GB","internal":"8GB","price":4734 },
+	 
+	 { "modelname": "Samsung, Galaxy J2", "ram": "1GB","internal":"8GB","price":7350 },
+	 { "modelname": "Samsung, Galaxy J3 Pro", "ram": "2GB","internal":"16GB","price":9340 },
+	 { "modelname": "Samsung, Galaxy On7 Pro", "ram": "2GB","internal":"16GB","price":9490 },    
+	 { "modelname": "Samsung, Galaxy Grand", "ram": "1.5GB","internal":"8GB","price":8900 },   
+	 { "modelname": "Samsung, Galaxy CORE2", "ram": "2","internal":"8GB","price":7999 },    
+	 
+	 { "modelname": "Samsung, Galaxy J7 Pro", "ram": "3GB","internal":"32GB","price":17999 },
+	 { "modelname": "Samsung, Galaxy On Nxt", "ram": "3GB","internal":"64GB","price":16900 },
+	 { "modelname": "Samsung, Galaxy S5", "ram": "2GB","internal":"16GB","price":16999 },    
+	 { "modelname": "Samsung, Galaxy A5", "ram": "2GB","internal":"16GB","price":18860 },   
+	 { "modelname": "Samsung, Galaxy Prime 4G", "ram": "1GB","internal":"8GB","price":11919 },    
+	 
+	  { "modelname": "Samsung, Galaxy S8", "ram": "4GB","internal":"64GB","price":57900 },
+	 { "modelname": "Samsung, Galaxy S8 Plus", "ram": "4GB","internal":"64GB","price":64900 },
+	 { "modelname": "Samsung, Galaxy Star Duos", "ram": "4GB","internal":"32GB","price":47999 },    
+	 { "modelname": "Samsung, Star Primo S5610", "ram": "4GB","internal":"32GB","price":27999 },   
+	 { "modelname": "Samsung, Galaxy Duos S6012", "ram": "4GB","internal":"16GB","price":30318 }    
+  ]
