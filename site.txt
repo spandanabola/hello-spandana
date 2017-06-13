@@ -1,0 +1,41 @@
+mongodb.org/downloads
+git-scm.com
+getbootstrap.com
+npm init
+npm install
+show dbs
+db.dropDatabase()
+use database
+db.createCollections('users');
+handlebars
+app.engine('handlebars',exphbs({defaultLayout:'layout'}));
+app.set('view engine','handlebars');
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.session
+
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
+
+app.use(flash());
+
+app.use(function(req,res,next){
+	res.locals.success_msg=req.flash('success_msg ');
+next();
+});
